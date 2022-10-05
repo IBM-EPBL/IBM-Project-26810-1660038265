@@ -1,0 +1,45 @@
+# IBM-Project-26810-1660038265
+Smart Solutions For Railways
+Blinking LED using python & Traffic light for Raspberry Pi
+Domain Name:Internet Of Things
+BY
+M.Raja(19CS075)
+K.Seenivasan(19CS088)
+M.K.Ram Kumar(19CS079)
+J.PraveenKumar(19CS070)
+Blinking LED using python
+CODE :
+import serial
+import time
+arduino = serial.Serial('com4',9600)
+time.sleep(2)
+print arduino.readline()
+print ("Enter 1 to get LED ON & 0 to get OFF")
+while 1:
+var = raw_input()
+if (var == '1'):
+arduino.write('1')
+print ("LED turned ON")
+time.sleep(1)
+if (var == '0'):
+arduino.write('0')
+print ("LED turned OFF")
+time.sleep(1)
+Traffic light for Raspberry Pi
+CODE :
+from gpiozero import Button, TrafficLights, Buzzer
+from time import sleep
+buzzer = Buzzer(15)
+button = Button(21)
+lights = TrafficLights(25, 8, 7)
+while True:
+button.wait_for_press()
+buzzer.on()
+light.green.on()
+sleep(1)
+lights.amber.on()
+sleep(1)
+lights.red.on()
+sleep(1)
+lights.off()
+buzzer.off()
